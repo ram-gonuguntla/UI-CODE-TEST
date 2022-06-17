@@ -1,0 +1,21 @@
+.todo-list {
+    padding: 15px;
+    &__items {
+        display: flex;
+        list-style-type: none;
+        border: 1px solid #cccccc;
+        &__span {
+            border-right: 1px solid #ccc;
+            display: inline-block;
+            padding: 10px;
+            flex: 1;
+        }
+        &__title{
+            flex: 5;
+        }
+
+    }
+}
+.checkbox, .user-name {
+    margin: 15px;
+}

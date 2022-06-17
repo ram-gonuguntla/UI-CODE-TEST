@@ -1,0 +1,39 @@
+$field-height: 30px;
+.login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    > div {
+        margin-bottom: 10px;
+    }
+    &__label {
+        display: block;
+        font-size: 16px;
+        margin-bottom: 5px;
+        sup {
+            color:#b30707;
+        }
+    }
+    &__input {
+        height:$field-height;
+        padding-left: 5px;
+    }
+    &__button {
+        height: $field-height;
+        background-color:#333333;
+        color:#ffffff;
+        min-width: 100px;
+        font-size: 16px;
+        border: none;
+        text-transform: uppercase;
+        border-radius: 5px;
+        cursor: pointer;
+        &:disabled {
+            cursor:not-allowed;
+        }
+    }
+    .error {
+        color: #b30707
+    }
+}

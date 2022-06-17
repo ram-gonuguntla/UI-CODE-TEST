@@ -1,0 +1,11 @@
+<div class="user-name"><b>{{loggedInUser?.name}}</b></div>
+<div class="checkbox">Show Completed Todos <input type="checkbox" [(ngModel)]="checked" (change)="showCompleted()"/></div>
+<div class="todo-list">
+    <ul>
+        <li *ngFor="let item of todoList | async; index as i" class="todo-list__items">
+            <span class="todo-list__items__span">{{item.id}}</span>
+            <span class="todo-list__items__span todo-list__items__title">{{item.title}}</span>
+            <span class="todo-list__items__span">{{item.completed}}</span>
+        </li>
+    </ul>
+</div>

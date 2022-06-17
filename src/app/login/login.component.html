@@ -1,0 +1,20 @@
+<form [formGroup]="loginForm" class="login-form" (ngSubmit)="onSubmit(loginForm)">
+   <div>
+    <label class="login-form__label">
+        User Name<sup>*</sup>
+    </label>
+    <input type="text" class="login-form__input" formControlName="userName" placeholder="User name">
+   </div>
+   <div>
+    <label class="login-form__label">
+        Password<sup>*</sup>
+    </label>
+    <input type="password" minlength="6" class="login-form__input" formControlName="password" placeholder="Password">
+   </div>
+   <div>
+     <button type="submit" class="login-form__button" [disabled]="loginForm.invalid">Login</button>
+   </div>
+   <div *ngIf="userNotFound" class="error">
+    No user with username <b>{{loginForm.get('userName')?.value}}</b> was found.
+   </div>
+</form>
