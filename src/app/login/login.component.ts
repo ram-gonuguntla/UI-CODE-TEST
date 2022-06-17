@@ -15,6 +15,10 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   userNotFound: boolean = false;
   usersInfo!: UserInfo[];
+  invalidUsername!: string;
+  get userName(): string {
+    return this.loginForm.get('userName')?.value;
+  }
   constructor(private formBuilder: FormBuilder, private http:HttpClient, private utilService: UtilService, private router: Router) { }
 
   ngOnInit(): void {
@@ -27,15 +31,15 @@ export class LoginComponent implements OnInit {
     })
     
   }
-
+  
   onSubmit({value}: FormGroup): void{
-    const result = this.usersInfo.find((obj) => obj.username.toLowerCase() === value.userName);
+    this.invalidUsername = value.userName;
+    const result = this.usersInfo.find((obj) => obj.username.toLowerCase() === value.userName.toLowerCase());
     this.userNotFound = result ? false : true;
     if(result) {
       this.utilService.updateLogiedInUser(result);
       this.router.navigateByUrl("/todo");
     }
-
   }
 
 }

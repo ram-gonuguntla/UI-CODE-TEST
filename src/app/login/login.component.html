@@ -14,7 +14,7 @@
    <div>
      <button type="submit" class="login-form__button" [disabled]="loginForm.invalid">Login</button>
    </div>
-   <div *ngIf="userNotFound" class="error">
-    No user with username <b>{{loginForm.get('userName')?.value}}</b> was found.
+   <div *ngIf="userNotFound && userName === invalidUsername" class="error">
+    No user with username <b>{{userName}}</b> was found.
    </div>
 </form>
